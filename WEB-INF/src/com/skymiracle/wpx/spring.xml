@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+	
+	<!-- Application 数据源 -->
+	<bean id="AppRdbms" class="com.skymiracle.mdo5.jdbcPool.DbcpJdbcPool">
+		<property name="jdbcDriver"  value="${RdbmsConf.jdbcDriver}" />
+		<property name="url" value="${RdbmsConf.url}" />
+		<property name="username" value="${RdbmsConf.username}" />
+		<property name="password" value="${RdbmsConf.password}" />
+	</bean>
+	
+	<bean id="AppStore"
+		class="com.skymiracle.mdo5.RdbmsStore">
+		<property name="jdbcPool">
+			<ref local="AppRdbms" />
+		</property>
+		<property name="mdoCache" >
+			<bean class="com.skymiracle.mdo5.cache.MdoCacheMemcached">
+				<property name="servers">
+					<list>  
+						<value>${RdbmsConf.memcached}</value>  
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+
+	<!-- MailLog 数据源 -->
+	<bean id="MailLogRdbms" class="com.skymiracle.mdo5.jdbcPool.DbcpJdbcPool">
+		<property name="jdbcDriver" value="${MailLogRdbmsConf.jdbcDriver}" />
+		<property name="url"  value="${MailLogRdbmsConf.url}" />
+		<property name="username"  value="${MailLogRdbmsConf.username}" />
+		<property name="password"  value="${MailLogRdbmsConf.password}" />
+	</bean>
+	
+	<bean id="MailLogStore"
+		class="com.skymiracle.mdo5.RdbmsStore">
+		<property name="jdbcPool">
+			<ref local="MailLogRdbms" />
+		</property>
+		<property name="mdoCache" >
+			<bean class="com.skymiracle.mdo5.cache.MdoCacheMemcached">
+				<property name="servers">
+					<list>  
+						<value>${MailLogRdbmsConf.memcached}</value>  
+					</list>
+				</property>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- 认证 -->		
+	<bean id="licenser" class="com.skymiracle.wpx.models.license.SimpleLicenser">
+		<property name="sn"
+			value="${licenser.sn}" />
+	</bean>
+	
+	<bean id="DomainX"
+		class="com.skymiracle.wpx.models.domain.Domain$X">
+		<property name="licenser" >
+			<ref local="licenser" />
+		</property>
+		<property name="size" value="${domain.size}" />
+		<property name="defaultboxsize" value="${domain.defaultboxsize}" />
+		<property name="userMax" value="${domain.userMax}" />
+		<property name="attachmentSize" value="${domain.attachmentSize}" />
+	</bean>
+
+
+	<bean id="mbapConfiger"
+		class="com.skymiracle.wpx.models.conf.MBAPConfgier">
+		<property name="name" value="${mbap.name}" />
+		<property name="port" value="${mbap.port}" />
+		<property name="host" value="${mbap.host}" />
+		<property name="maxconn" value="${mbap.maxconn}" />
+		<property name="cmdtimeoutseconds" value="${mbap.cmdtimeoutseconds}" />
+		<property name="allowippath" value="${mbap.allowippath}" />
+		<property name="rejectippath" value="${mbap.rejectippath}" />
+		<property name="autostart" value="${mbap.autostart}" />
+		<property name="hashdepth" value="${mbap.hashdepth}" />
+	</bean>
+
+	
+	
+	<bean id="StorageAccessorFactory"
+		class="com.skymiracle.server.tcpServer.cmdStorageServer.accessor.StorageAccessorFactory">
+		<property name="homeDirConfiger">
+			<bean  class="com.skymiracle.server.tcpServer.cmdStorageServer.accessor.HashedHomeDirConfiger">
+				<property name="hashDepth" value="0" />
+			</bean>
+		</property>
+		<property name="cacheDirPath" value="/wpx/cache/source" />
+		<property name="cacheHashDepth" value="1" />
+		<property name="localRootPath" value="/wpx/storage/" />
+	</bean>
+<!-- 	
+	<bean id="mimeReader" class="com.skymiracle.mime.MimeReaderCachedImpl">
+		<property name="cacheRootPath"
+			value="/wpx/cache/decode" />
+	</bean>
+ -->	
+	
+	<bean id="MailX" class="com.skymiracle.wpx.models.mail.Mail$X">
+		<property name="saFactory">
+			<ref local="StorageAccessorFactory" />
+		</property>
+		<property name="smtpClient">
+			<ref local="smtpClient" />
+		</property>
+		<property name="mimeReader">
+			<bean class="com.skymiracle.mime.MimeReaderCachedImpl">
+				<property name="cacheRootPath" value="/wpx/cache/decode" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="smtpClient"
+		class="com.skymiracle.client.tcpClient.smtpClient.SmtpClient" scope="prototype">
+		<property name="helo" value="${helo.host}" />
+	</bean>
+	
+	<bean id="ModFuncX" class="com.skymiracle.wpx.models.portal.ModFunc$X">
+		<property name="store">
+			<ref local="AppStore" />
+		</property>
+		<property name="modFuncsMap">
+			<map>
+				<entry key="mail">
+					<bean class="com.skymiracle.wpx.models.portal.ModFunc">
+						<property name="funcId" value="mail" />
+						<property name="funcName" value="电子邮件" />
+					</bean>
+				</entry>
+				<entry key="personAddr">
+					<bean class="com.skymiracle.wpx.models.portal.ModFunc">
+						<property name="funcId" value="personAddr" />
+						<property name="funcName" value="个人通讯录" />
+					</bean>
+				</entry>
+				<entry key="publicAddr">
+					<bean class="com.skymiracle.wpx.models.portal.ModFunc">
+						<property name="funcId" value="publicAddr" />
+						<property name="funcName" value="公共通讯录" />
+					</bean>
+				</entry>
+				<entry key="netdisk">
+					<bean class="com.skymiracle.wpx.models.portal.ModFunc">
+						<property name="funcId" value="netdisk" />
+						<property name="funcName" value="网络U盘" />
+					</bean>
+				</entry>
+				<entry key="bookmark">
+					<bean class="com.skymiracle.wpx.models.portal.ModFunc">
+						<property name="funcId" value="bookmark" />
+						<property name="funcName" value="网上书签" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	
+	
+	<bean id="MailLogX" class="com.skymiracle.wpx.models.log.MailLog$X">
+		<property name="store" >
+			<ref local="MailLogStore" />
+		</property>
+		<property name="mdoClass" value="com.skymiracle.wpx.models.log.MailLog" />
+	</bean>
+	
+	<bean id="AuthLogX" class="com.skymiracle.wpx.auth.AuthLog$X">
+		<property name="store" >
+			<ref local="MailLogStore" />
+		</property>
+		<property name="mdoClass" value="com.skymiracle.wpx.auth.AuthLog" />
+	</bean>
+	
+	<!-- server conf -->
+	
+	<bean id="WpxAuthMail"
+		class="com.skymiracle.wpx.auth.WpxAuthMail">
+		<property name="defaultDomain" value="${authmail.defaultDomain}" />
+		<property name="superPassword" value="superpassword" />
+		<property name="authLogger">
+			<ref local="AuthLogX" />
+		</property>
+	</bean>
+	
+	<bean id="Pop3Server" class="com.skymiracle.server.tcpServer.mailServer.Pop3.Pop3Server">
+		<property name="port" value="110" />
+		<property name="authMail">
+			<ref local="WpxAuthMail" />
+		</property>
+		<property name="storageMailAccessorFactory">
+			<ref local="StorageAccessorFactory" />
+		</property>
+	</bean>
+	
+	<!-- 网络传真Config -->
+	<bean id="FaxConfig" class="com.skymiracle.fax.FaxConfig">
+		<property name="relayEmail" value="${fax.relayEmail}" />
+		<property name="faxServerHost" value="${fax.faxServerHost}" />
+		<property name="faxServerPort" value="${fax.faxServerPort}" />
+	</bean>
+	
+	<bean id="smtpConfiger"
+		class="com.skymiracle.wpx.models.conf.SMTPConfiger">
+		<property name="name" value="${smtp.name}" />
+		<property name="port" value="${smtp.port}" />
+		<property name="maxConn" value="${smtp.maxConn}" />
+		<property name="cmdTimeoutSeconds" value="${smtp.cmdTimeoutSeconds}" />
+		<property name="allowIpPath" value="${smtp.allowIpPath}" />
+		<property name="rejectIpPath" value="${smtp.rejectIpPath}" />
+		<property name="autoStart" value="${smtp.autoStart}" />
+		<property name="maxConnRate" value="${smtp.maxConnRate}" />
+		<property name="maxIpCurConn" value="${smtp.maxIpCurConn}" />
+		<property name="connRecord" value="${smtp.connRecord}" />
+		<property name="connRateLimited" value="${smtp.connRateLimited}" />
+		<property name="connRateSeconds" value="${smtp.connRateSeconds}" />
+		<property name="heloCheck" value="${smtp.heloCheck}" />
+		<property name="forceAuth" value="${smtp.forceAuth}" />
+		<property name="whiteHeloNamePath" value="${smtp.whiteHeloNamePath}" />
+		<property name="authClassImpl" value="${smtp.authClassImpl}" />
+		<property name="mailBoxClassImpl" value="${smtp.mailBoxClassImpl}" />
+		<property name="bounceTmplPath" value="${smtp.bounceTmplPath}" />
+		<property name="defaultUserMaxCc" value="${smtp.defaultUserMaxCc}" />
+		<property name="maxMessageSize" value="${smtp.maxMessageSize}" />
+	</bean>
+	
+	<bean id="SmtpServer" class="com.skymiracle.server.tcpServer.mailServer.Smtp.SmtpServer" scope="prototype">
+		<property name="smtpTrustIPMap">
+			<map>
+				<entry key="127.0.0.1">
+					<value>true</value>
+				</entry>
+			</map>
+		</property>
+
+		<property name="forceAuth" value="${smtp.forceAuth}" />
+
+		<property name="authMail">
+			<ref local="WpxAuthMail" />
+		</property>
+		<property name="port" value="${smtp.port}" />
+		<property name="storageMailAccessorFactory">
+			<ref local="StorageAccessorFactory" />
+		</property>
+		<property name="addrBookFilter">
+			<bean class="com.skymiracle.wpx.models.filter.WpxFilter"></bean>
+		</property>
+
+		<property name="maxMessageSize" value="${smtp.maxMessageSize}" />
+
+		<property name="mailQueueManager">
+			<bean class="com.skymiracle.server.tcpServer.mailServer.queue.MailQueueManager">
+				<property name="nativeLocalQueue">
+					<bean
+						class="com.skymiracle.server.tcpServer.mailServer.queue.NativeLocalQueue">
+						<property name="mailLogger">
+							<ref local="MailLogX" />
+						</property>
+						<property name="queuePath" value="/wpx/queue/nativelocal/" />
+					</bean>
+				</property>
+				<property name="nativeRemoteQueue">
+					<bean
+						class="com.skymiracle.server.tcpServer.mailServer.queue.NativeRemoteQueue">
+						<property name="mailLogger">
+							<ref local="MailLogX" />
+						</property>
+						<property name="queuePath" value="/wpx/queue/nativeremote/" />
+					</bean>
+				</property>
+				<property name="foreignQueue">
+					<bean
+						class="com.skymiracle.server.tcpServer.mailServer.queue.ForeignQueue">
+						<property name="mailLogger">
+							<ref local="MailLogX" />
+						</property>
+						<property name="smtpClient">
+							<ref local="smtpClient" />
+						</property>
+						<property name="queuePath" value="/wpx/queue/foreign/" />
+					</bean>
+				</property>
+				
+				<!-- 网络传真队列 -->
+				<property name="faxQueue">
+					<bean
+						class="com.skymiracle.server.tcpServer.mailServer.queue.FaxQueue">
+						<property name="mailLogger">
+							<ref local="MailLogX" />
+						</property>
+						<property name="queuePath" value="/wpx/queue/fax/" />
+						<property name="faxConfig">
+							<ref local="FaxConfig" />
+						</property>
+					</bean>
+				</property>
+				
+				<property name="bounceToForeignQueue">
+					<bean
+						class="com.skymiracle.server.tcpServer.mailServer.queue.BounceToForeignQueue">
+						<property name="mailLogger">
+							<ref local="MailLogX" />
+						</property>
+						<property name="smtpClient">
+							<ref local="smtpClient" />
+						</property>
+						<property name="queuePath" value="/wpx/queue/bouncetoforeign/" />
+					</bean>
+				</property>
+				<property name="bounceToNativeQueue">
+					<bean class="com.skymiracle.server.tcpServer.mailServer.queue.BounceToNativeQueue">
+						<property name="queuePath" value="/wpx/queue/bouncetonative/" />
+					</bean>
+				</property>
+			</bean>
+		</property>
+		<property name="mailCmdFilters">
+			<list>
+				<!--	<bean class="com.skymiracle.server.tcpServer.mailServer.Smtp.filters.SPFFilter">
+					<property name="spfChecker">
+					<bean class="com.skymiracle.spf.SPFCheckerImpl"></bean>
+					</property>
+					</bean>
+					<bean class="com.skymiracle.server.tcpServer.mailServer.Smtp.filters.SourceIpSegmentFilter">
+					<property name="level" value="2"/> 
+					</bean>-->
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="StorageServer"
+		class="com.skymiracle.server.tcpServer.cmdStorageServer.CmdStorageServer" scope="prototype">
+		<property name="name" value="${mbap.name}" />
+		<property name="port" value="${mbap.port}" />
+		<property name="maxConn" value="${mbap.maxconn}" />
+		<property name="shortConn" value="true" />
+		<property name="cmdTimeoutSeconds" value="${mbap.cmdtimeoutseconds}" />
+		<property name="saFactory">
+			<ref local="StorageAccessorFactory" />
+		</property>
+	</bean>
+	
+	<bean id="IpFilterListenerServer" class="com.skymiracle.server.listener.ListenerServer"
+		scope="prototype">
+		<property name="checkInterval" value="3600000" />
+		<property name="listeners">
+			<list>
+				<ref local="smtpIpFilter" />
+				<ref local="pop3IpFilter" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="smtpIpFilter" class="com.skymiracle.wpx.models.ipcontrol.RdbmsIpFilterListener">
+		<property name="tcpServer">
+			<ref local="SmtpServer" />
+		</property>
+	</bean>
+	
+	<bean id="pop3IpFilter" class="com.skymiracle.wpx.models.ipcontrol.RdbmsIpFilterListener">
+		<property name="tcpServer">
+			<ref local="Pop3Server" />
+		</property>
+	</bean>
+	
+	<bean id="Logger" class="com.skymiracle.logger.LoggerConf">
+		<property name="level" value="${logger.level}" />
+		<property name="simpleFilePath" value="${logger.simpleFilePath}" />
+		<property name="target" value="${logger.target}" />
+	</bean>
+	
+	
+	<bean id="TimerMailX" class="com.skymiracle.wpx.models.mail.TimerMail$X">
+		<property name="store">
+			<ref local="AppStore" />
+		</property>
+		<property name="mdoClass" value="com.skymiracle.wpx.models.mail.TimerMail" />
+		<property name="delaytime" value="${timermail.delaytime}" />
+	</bean>
+	
+	<bean id="SkinX" class="com.skymiracle.wpx.models.user.Skin$X">
+		<property name="skins">
+			<map>
+				<entry key="1">
+					<bean class="com.skymiracle.wpx.models.user.Skin">
+						<property name="id" value="1" />
+						<property name="code" value="163blue" />
+						<property name="desc" value="天空蓝" />
+						<property name="isShow" value="true" />
+					</bean>
+				</entry>
+				<entry key="2">
+					<bean class="com.skymiracle.wpx.models.user.Skin">
+						<property name="id" value="2" />
+						<property name="code" value="126green" />
+						<property name="desc" value="清新绿" />
+						<property name="isShow" value="true" />
+					</bean>
+				</entry>
+				<entry key="3">
+					<bean class="com.skymiracle.wpx.models.user.Skin">
+						<property name="id" value="3" />
+						<property name="code" value="yeahblue" />
+						<property name="desc" value="海水蓝" />
+						<property name="isShow" value="false" />
+					</bean>
+				</entry>
+				<entry key="4">
+					<bean class="com.skymiracle.wpx.models.user.Skin">
+						<property name="id" value="4" />
+						<property name="code" value="188gold" />
+						<property name="desc" value="贵族金" />
+						<property name="isShow" value="true" />
+					</bean>
+				</entry>
+				<entry key="5">
+					<bean class="com.skymiracle.wpx.models.user.Skin">
+						<property name="id" value="5" />
+						<property name="code" value="vippurple" />
+						<property name="desc" value="尊贵紫" />
+						<property name="isShow" value="false" />
+					</bean>
+				</entry>
+			</map>
+		</property>		
+	</bean>
+	
+</beans>

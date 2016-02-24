@@ -1,0 +1,86 @@
+########## app db ##########
+RdbmsConf.jdbcDriver = com.mysql.jdbc.Driver
+RdbmsConf.url = jdbc:mysql://127.0.0.1:3306/db_wpx2?useUnicode=true&amp;
+RdbmsConf.username = root
+RdbmsConf.password = 111111
+RdbmsConf.memcached = 127.0.0.1:11211
+
+########## maillog db ##########
+MailLogRdbmsConf.jdbcDriver = com.mysql.jdbc.Driver
+MailLogRdbmsConf.url = jdbc:mysql://127.0.0.1:3306/db_wpx2?useUnicode=true&amp;
+MailLogRdbmsConf.username = root
+MailLogRdbmsConf.password = 111111
+MailLogRdbmsConf.memcached = 127.0.0.1:11211
+
+########## domain conf ##########
+#默认总容量(b)
+domain.size = 2000
+#默认邮箱大小(b)
+domain.defaultboxsize = 20
+#最大用户数
+domain.userMax = 100
+#上传附件大小(b)
+domain.attachmentSize = 10
+
+########## smtp conf ##########
+smtp.name = smtp
+smtp.port = 25
+smtp.maxConn = 1000
+smtp.cmdTimeoutSeconds = 15
+smtp.allowIpPath = /wpx/conf/allow.ip
+smtp.rejectIpPath = /wpx/conf/reject.ip
+smtp.autoStart = true
+smtp.maxConnRate = 0
+smtp.maxIpCurConn = 10
+smtp.connRecord = false
+smtp.connRateLimited = true
+smtp.connRateSeconds = 0
+smtp.heloCheck = false
+smtp.forceAuth = false
+smtp.whiteHeloNamePath = /wpx/conf/white.heloname
+smtp.authClassImpl = authldap
+smtp.mailBoxClassImpl = mbapmailbox
+smtp.bounceTmplPath = /wpx/tmpl/bounce.eml
+#最大发送人数
+smtp.defaultUserMaxCc = 50
+#默认最大邮件发送大小
+smtp.maxMessageSize = 15000000
+
+########## mbap conf ##########
+mbap.name = RemoteStorageServer
+mbap.host = 127.0.0.1
+mbap.port = 6001
+mbap.maxconn = 150
+mbap.cmdtimeoutseconds = 15
+mbap.allowippath = /wpx/conf/allow.ip
+mbap.rejectippath = /wpx/conf/reject.ip
+mbap.autostart = yes
+mbap.hashdepth = 0
+
+########## helo conf ##########
+helo.host = 192.168.1.8
+
+########## logger conf ##########
+logger.level = DEBUG
+logger.simpleFilePath = /wpx/log/wpx.log
+logger.target = STDOUT
+
+########## StorageAccessor conf ##########
+accessor.cacheDirPath = /wpx/cache/source
+accessor.cacheHashDepth = 1
+accessor.storageDirPath = /wpx/storage/
+accessor.storageHashDepth = 0
+
+########## fax conf ##########
+fax.relayEmail = cnfax@nc.cn
+fax.faxServerHost = 60.182.191.45
+fax.faxServerPort = 8799
+
+########## Timer Mail ##########
+timermail.delaytime = 60000
+
+########## default domain ##########
+authmail.defaultDomain=nc.cn
+
+########## licenser sn ##########
+licenser.sn=8000_78GG43E51GC62G2B3GE3D5G2C212:896

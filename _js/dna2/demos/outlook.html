@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="zh" xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>Your Page Title Here</title>
+<script type="text/javascript" src="../../jquery/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="../../jquery/ui/ui.core.js"></script>
+<script type="text/javascript" src="../../jquery/ui/ui.resizable.js"></script>
+<script type="text/javascript" src="../wx.js"></script>
+<style type="text/css" media="all">
+html,body,p,div,img,h1,h2,h3,h4,li,ul,ol,dl,dd,dt,form,table,td,tr {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+html,body {
+	height: 100%;
+	overflow: hidden;
+}
+
+.ui-resizable-handle { position: absolute; display: none; font-size: 0.1px; }
+.ui-resizable-handle { position: absolute; display: none; font-size: 0.1px; }
+.ui-resizable .ui-resizable-handle { display: block; }
+body .ui-resizable-disabled .ui-resizable-handle { display: none; } /* use 'body' to make it more specific (css order) */
+body .ui-resizable-autohide .ui-resizable-handle { display: none; } /* use 'body' to make it more specific (css order) */
+.ui-resizable-n { cursor: n-resize; height: 6px; width: 100%; top: 0px; left: 0px; background: #C4DAFA  repeat scroll center top; }
+.ui-resizable-s { cursor: s-resize; height: 6px; width: 100%; bottom: 0px; left: 0px; background: #C4DAFA  repeat scroll center top; }
+.ui-resizable-e { cursor: e-resize; width: 6px; right: 0px; top: 0px; height: 100%; background: #C4DAFA repeat scroll right center; }
+.ui-resizable-w { cursor: w-resize; width: 6px; left: 0px; top: 0px; height: 100%; background: #C4DAFA repeat scroll right center; }
+.ui-resizable-se { cursor: se-resize; width: 9px; height: 9px; right: 0px; bottom: 0px; background: #C4DAFA  }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: 0px; bottom: 0px; background: #C4DAFA  }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: 0px; top: 0px; background: #C4DAFA  }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: 0px; top: 0px; background: #C4DAFA }
+
+
+.wxSplitter {
+	background-color: #C4DAFA;
+	padding: 4px;
+}
+
+.wxSplitter-aide {
+	background-color: #cccccc;
+}
+
+.wxSplitter-main {
+	background-color: white;
+}
+
+.wxSplitter-border {
+	border:1px solid #002D96;
+}
+
+
+#mainMenu {
+	border-top:2px solid gray;
+	background-color: darkblue;
+}
+
+#mainMenu li.menuItem {
+}
+
+#mainMenu li.menuItem a.menuItem{
+	height: 30px;
+	line-height: 30px;
+	border-bottom: 1px solid gray;
+	display: block;
+	color: white;
+	text-align: center;
+}
+
+ul#mainMenu li.menuItem a.menuItem:hover {
+	background-color: yellow;	
+	color: black;
+}
+
+.wxPanel {
+	background-color: lightyellow;
+}
+
+.wxPanel .wxPanelTitle {
+	background-color: darkblue;
+	color: white;
+	display: block;
+	padding: 5px;
+}
+
+.wxPanel .wxPanelBody {
+	background-color: white;
+	padding: 5px;
+}
+
+
+#pgHeader {
+	background-color:#C4DAFA;
+	height: 49px;
+}
+
+#folderSplitter {
+
+}
+</style>
+</head>
+
+<body>
+
+<div id="pgHeader">
+</div>
+<ul id="wxSplitter" class="wxSplitter">
+	<li class="wxSplitter-aide">
+		<ul id="aideSplitter">
+			<li>
+				<div id="mailPanel" class="wxPanel">
+					<a id="#wxPanelTitle" class="wxPanelTitle">邮件</a>
+					<div class="wxPanelBody">
+						asdfasdf
+					</div>
+				</div>
+			</li>
+			<li>
+				<ul id="mainMenu">
+					<li class="menuItem"><a class="menuItem" href="#" >邮件</a></li>
+					<li class="menuItem"><a class="menuItem" href="#" >邮件</a></li>
+					<li class="menuItem"><a class="menuItem" href="#" >邮件</a></li>
+					<li class="menuItem"><a class="menuItem" href="#" >邮件</a></li>
+					<li class="menuItem"><a class="menuItem" href="#" >邮件</a></li>
+					<li class="menuItem"><a class="menuItem" href="#" >邮件</a></li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li class="wxSplitter-main">
+		<ul id="mainSplitter">
+			<li >
+				<ul id="folderSplitter">
+					<li class="wxSplitter-border">1
+					</li>
+					<li class="wxSplitter-border">2
+					</li>
+				</ul>
+			</li>
+			<li>
+			</li>
+		</ul>
+	</li>
+</ul>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	$("#wxSplitter").splitter({
+		pos: 'l'
+	});
+	$("#aideSplitter").splitter({
+		pos: 'b', 
+		width: 200
+	});
+	$("#mailPanel").dockIn({pos: 'f'});
+
+	$("#mainMenu").dockIn({pos: 'f'});
+	$("#mainSplitter").splitter({
+		pos: 'l', 
+		width: 300
+	});
+	$("#folderSplitter").splitter({
+		pos: 't', 
+		width: 30,
+		resizable: false
+	});
+	
+//	$(".ui-resizable-handle").css("background", "#C4DAFA");
+	setTimeout(function(){$(window).trigger('resize')}, 1000);
+});
+</script>
+</body>
+
+
+</html>

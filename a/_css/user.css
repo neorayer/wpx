@@ -1,0 +1,75 @@
+
+.title_BarImg{
+	padding:0; 
+	width:41px; 
+}
+.title_BarImg[class]{
+	background-image: url(../_img/user.png); 
+	background-repeat: no-repeat; 
+}
+
+#title_Font1{
+	color:#ffffff;
+	font-weight: bolder;
+}
+#title_Font2{
+	color:#ffffff;
+}
+#help_BTN {
+	background: url("../_img/help_BTN.gif");
+	border: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width:18px;
+}
+
+.pgHeadBlock {
+	height: 41px;
+	background-color:#43a625;
+	margin-left:10px;
+	margin-right:9px;
+}
+
+.SDC_TreeView .SDC_TreeNode_BranchCtr .SDC_TreeNode .SDC_TreeNode_Item {
+	background-color:#ffffff;
+	border-top:0px solid #ffffff;
+}
+
+.SDC_TreeView .SDC_TreeNode_BranchCtr .SDC_TreeNode .SDC_TreeNode_Item a {
+	background-color:#999999;
+}
+
+
+.SDC_DataTable {
+	border-top: 4px solid #43a625;
+	border-left: 1px solid #f3f3ec;
+	border-right: 2px solid #43a625;
+	border-bottom: 2px solid #43a625;
+}
+
+.SDC_TreeNode_Title_hover,.SDC_TreeNode_Title_down {
+	background-color:#43a625;
+}
+
+
+
+.SDC_TreeNode_Item {
+	background:url();
+	background-color:#43a625;
+	border-top:5px solid #43a625;
+}
+.SDC_TreeView .SDC_TreeNode_Item{
+	height:20px;
+	margin-top:5px;
+}
+
+.SDC_TreeNode_Title,.SDC_TreeNode_Title_hover,.SDC_TreeNode_Title_down {
+	height:20px;
+}
+
+.SDC_TreeNode_Icon_Opened,.SDC_TreeNode_Icon_Closed,
+.SDC_TreeNode_Switch_Opened,.SDC_TreeNode_Switch_Closed {
+	float:left;
+	display:block;
+	height:15px;
+}

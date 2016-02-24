@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="zh" xml:lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>Your Page Title Here</title>
+<script type="text/javascript" src="../../jquery/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="../../jquery/ui/ui.core.js"></script>
+<script type="text/javascript" src="../wx.js"></script>
+<style type="text/css" media="all">
+html,body,p,div,img,h1,h2,h3,h4,li,ul,ol,dl,dd,dt,form,table,td,tr {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+html,body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	padding: 10px; 
+/*	margin: 10px; */
+}
+
+#ctrAll {
+	background-color: #c3d9ff;
+	border: 5px solid red;
+	padding: 1px; 
+	margin: 1px; 
+}
+
+.fullBox {
+	background-color: white;
+	border: 1px solid green;
+	padding: 15px;
+	margin: 5px;
+}
+.box {
+	width: 100px;
+	height: 100px;
+	border: 3px solid black;
+	margin: 1px;
+	padding: 1px;
+}
+
+.sideBox {
+	margin: 1px;
+	padding: 1px;
+	width: 50px;
+	height: 50px;
+	background-color: orange;
+	border: 5px dashed green;
+}
+
+</style>
+</head>
+
+<body>
+<div id="ctrAll">
+	<div id="fullBox" class="fullBox">
+		<div id="box1" class="box">
+			<div id="sideBox1" class="sideBox">1</div>
+		</div>
+		<div id="box2" class="box">
+			<div id="sideBox2" class="sideBox">2</div>
+		</div>
+		<div id="box3" class="box">
+			<div id="sideBox3" class="sideBox">3</div>
+		</div>
+		<div id="box4" class="box">
+			<div id="sideBox4" class="sideBox">4</div>
+		</div>
+		
+		<div id="besideBox1" class="sideBox" >1</div>
+		<div id="besideBox2" class="sideBox" >2</div>
+		<div id="besideBox3" class="sideBox" >3</div>
+		<div id="besideBox4" class="sideBox" >4</div>
+		<div id="besideBox5" class="sideBox" >5</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#ctrAll").dockIn({pos: 'f'});
+
+	$("#fullBox").dockIn({pos: 'f'});
+	
+	$("#box1").dockIn({pos: 'lb'});
+	$("#box2").dockIn({pos: 'rb'});
+	$("#box3").dockIn({pos: 'lt'});
+	$("#box4").dockIn({pos: 'rt'});
+
+	$("#sideBox1").dockIn({pos: 't'});
+	$("#sideBox2").dockIn({pos: 'r'});
+	$("#sideBox3").dockIn({pos: 'b'});
+	$("#sideBox4").dockIn({pos: 'l'});
+	
+	$("#besideBox1").dockIn({pos: 'l', beside: "#box3"});
+	$("#besideBox2").dockIn({pos: 'r', beside: "#box2"});
+	$("#besideBox3").dockIn({pos: 't', beside: "#box4"});
+	$("#besideBox4").dockIn({pos: 'b', beside: "#box1"});
+
+	$("#besideBox5").dockIn({pos: 'f', top: "#besideBox3",  right: "#besideBox2", bottom: "#besideBox4", left: "#besideBox1"});
+
+});
+</script>
+</body>
+
+
+</html>

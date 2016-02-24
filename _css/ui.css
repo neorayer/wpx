@@ -1,0 +1,690 @@
+
+/********** datepicker **********/
+
+#ui-datepicker-div,.ui-datepicker-inline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 0;
+	margin: 0;
+	background: #E0F4D7;
+	width: 185px;
+}
+
+#ui-datepicker-div {
+	display: none;
+	border: 1px solid #FF9900;
+	z-index: 10;
+}
+
+.ui-datepicker-inline {
+	float: left;
+	display: block;
+	border: 0;
+}
+
+.ui-datepicker-rtl {
+	direction: rtl;
+}
+
+.ui-datepicker-dialog {
+	padding: 5px !important;
+	border: 4px ridge #83C948 !important;
+}
+
+button.ui-datepicker-trigger {
+	width: 25px;
+}
+
+img.ui-datepicker-trigger {
+	margin: 2px;
+	vertical-align: middle;
+}
+
+.ui-datepicker-prompt {
+	float: left;
+	padding: 2px;
+	background: #E0F4D7;
+	color: #000;
+}
+
+* html .ui-datepicker-prompt {
+	width: 185px;
+}
+
+.ui-datepicker-control,.ui-datepicker-links,.ui-datepicker-header,.ui-datepicker
+	{
+	clear: both;
+	float: left;
+	width: 100%;
+	color: #FFF;
+}
+
+.ui-datepicker-control {
+	background: #FF9900;
+	padding: 2px 0px;
+}
+
+.ui-datepicker-links {
+	background: #E0F4D7;
+	padding: 2px 0px;
+}
+
+.ui-datepicker-control,.ui-datepicker-links {
+	font-weight: bold;
+	font-size: 80%;
+	letter-spacing: 1px;
+}
+
+.ui-datepicker-links label {
+	padding: 2px 5px;
+	color: #888;
+}
+
+.ui-datepicker-clear,.ui-datepicker-prev {
+	float: left;
+	width: 34%;
+}
+
+.ui-datepicker-rtl .ui-datepicker-clear,.ui-datepicker-rtl .ui-datepicker-prev
+	{
+	float: right;
+	text-align: right;
+}
+
+.ui-datepicker-current {
+	float: left;
+	width: 30%;
+	text-align: center;
+}
+
+.ui-datepicker-close,.ui-datepicker-next {
+	float: right;
+	width: 34%;
+	text-align: right;
+}
+
+.ui-datepicker-rtl .ui-datepicker-close,.ui-datepicker-rtl .ui-datepicker-next
+	{
+	float: left;
+	text-align: left;
+}
+
+.ui-datepicker-header {
+	padding: 1px 0 3px;
+	background: #83C948;
+	text-align: center;
+	font-weight: bold;
+	height: 1.3em;
+}
+
+.ui-datepicker-header select {
+	background: #83C948;
+	color: #000;
+	border: 0px;
+	font-weight: bold;
+}
+
+.ui-datepicker {
+	background: #CCC;
+	text-align: center;
+	font-size: 100%;
+}
+
+.ui-datepicker a {
+	display: block;
+	width: 100%;
+}
+
+.ui-datepicker-title-row {
+	background: #B1DB87;
+	color: #000;
+}
+
+.ui-datepicker-title-row .ui-datepicker-week-end-cell {
+	background: #B1DB87;
+}
+
+.ui-datepicker-days-row {
+	background: #FFF;
+	color: #666;
+}
+
+.ui-datepicker-week-col {
+	background: #B1DB87;
+	color: #000;
+}
+
+.ui-datepicker-days-cell {
+	color: #000;
+	border: 1px solid #DDD;
+}
+
+.ui-datepicker-days-cell a {
+	display: block;
+}
+
+.ui-datepicker-week-end-cell {
+	background: #E0F4D7;
+}
+
+.ui-datepicker-unselectable {
+	color: #888;
+}
+
+.ui-datepicker-week-over,.ui-datepicker-week-over .ui-datepicker-week-end-cell
+	{
+	background: #B1DB87 !important;
+}
+
+.ui-datepicker-days-cell-over,.ui-datepicker-days-cell-over.ui-datepicker-week-end-cell
+	{
+	background: #FFF !important;
+	border: 1px solid #777;
+}
+
+* html .ui-datepicker-title-row .ui-datepicker-week-end-cell {
+	background: #B1DB87 !important;
+}
+
+* html .ui-datepicker-week-end-cell {
+	background: #E0F4D7 !important;
+	border: 1px solid #DDD !important;
+}
+
+* html .ui-datepicker-days-cell-over {
+	background: #FFF !important;
+	border: 1px solid #777 !important;
+}
+
+* html .ui-datepicker-current-day {
+	background: #83C948 !important;
+}
+
+.ui-datepicker-today {
+	background: #B1DB87 !important;
+}
+
+.ui-datepicker-current-day {
+	background: #83C948 !important;
+}
+
+.ui-datepicker-status {
+	background: #E0F4D7;
+	width: 100%;
+	font-size: 80%;
+	text-align: center;
+}
+
+#ui-datepicker-div a,.ui-datepicker-inline a {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	background: none;
+	color: #000;
+}
+
+.ui-datepicker-inline .ui-datepicker-links a {
+	padding: 0 5px !important;
+}
+
+.ui-datepicker-control a,.ui-datepicker-links a {
+	padding: 2px 5px !important;
+	color: #000 !important;
+}
+
+.ui-datepicker-title-row a {
+	color: #000 !important;
+}
+
+.ui-datepicker-control a:hover {
+	background: #FDD !important;
+	color: #333 !important;
+}
+
+.ui-datepicker-links a:hover,.ui-datepicker-title-row a:hover {
+	background: #FFF !important;
+	color: #333 !important;
+}
+
+.ui-datepicker-multi .ui-datepicker {
+	border: 1px solid #83C948;
+}
+
+.ui-datepicker-one-month {
+	float: left;
+	width: 185px;
+}
+
+.ui-datepicker-new-row {
+	clear: left;
+}
+
+.ui-datepicker-cover {
+	display: none;
+	display /**/: block;
+	position: absolute;
+	z-index: -1;
+	/* filter: mask(); */
+	top: -4px;
+	left: -4px;
+	width: 193px;
+	height: 200px;
+}
+
+
+/********** dialog **********/
+
+.ui-dialog	{
+	background-color: #c3d9ff;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+	border-bottom: 1px solid #d8d2aa;
+	background: #ff9900 url(../_imgs/dialog/dialog-title.gif) repeat-x;
+	padding: 0px;
+	height: 28px;
+	_height: 29px;
+}
+
+.ui-draggable .ui-dialog-titlebar {
+	cursor: move;
+}
+
+.ui-draggable-disabled .ui-dialog-titlebar {
+	cursor: default;
+}
+
+.ui-dialog .ui-dialog-titlebar-close{
+	width: 16px;
+	height: 16px;
+	background: url(../_imgs/dialog/dialog-titlebar-close.png) no-repeat;
+	position: absolute;
+	top: 6px;
+	right: 7px;
+	cursor: default;
+}
+
+.ui-dialog .ui-dialog-titlebar-close span{
+	display: none;
+}
+
+.ui-dialog .ui-dialog-titlebar-close-hover {
+	background: url(../_imgs/dialog/dialog-titlebar-close-hover.png)
+		no-repeat;
+}
+
+.ui-dialog .ui-dialog-title {
+	margin-left: 5px;
+	color: white;
+	font-weight: bold;
+	position: relative;
+	top: 7px;
+	left: 4px;
+}
+
+.ui-dialog .ui-dialog-content {
+	margin: 1.2em;
+	overflow: auto;
+	background-color: white;
+}
+
+.ui-dialog .ui-dialog-buttonpane {
+	position: absolute;
+	bottom: 8px;
+	right: 12px;
+	width: 100%;
+	text-align: right;
+	background-color: #c3d9ff;
+}
+
+.ui-dialog .ui-dialog-buttonpane button,.ui-dialog .ui-dialog-buttonpane button
+	{
+	margin: 6px;
+}
+
+/* Dialog handle styles */
+.ui-dialog .ui-resizable-n,.ui-dialog .ui-resizable-n {
+	cursor: n-resize;
+	height: 6px;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	background: transparent url(../_imgs/dialog/dialog-n.gif) repeat scroll
+		center top;
+}
+
+.ui-dialog .ui-resizable-s,.ui-dialog .ui-resizable-s {
+	cursor: s-resize;
+	height: 8px;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	background: transparent url(../_imgs/dialog/dialog-s.gif) repeat scroll
+		center top;
+}
+
+.ui-dialog .ui-resizable-e,.ui-dialog .ui-resizable-e {
+	cursor: e-resize;
+	width: 7px;
+	right: 0px;
+	top: 0px;
+	height: 100%;
+	background: transparent url(../_imgs/dialog/dialog-e.gif) repeat scroll
+		right center;
+}
+
+.ui-dialog .ui-resizable-w,.ui-dialog .ui-resizable-w {
+	cursor: w-resize;
+	width: 7px;
+	left: 0px;
+	top: 0px;
+	height: 100%;
+	background: transparent url(../_imgs/dialog/dialog-w.gif) repeat scroll
+		right center;
+}
+
+.ui-dialog .ui-resizable-se,.ui-dialog .ui-resizable-se {
+	cursor: se-resize;
+	width: 9px;
+	height: 9px;
+	right: 0px;
+	bottom: 0px;
+	background: transparent url(../_imgs/dialog/dialog-se.gif);
+}
+
+.ui-dialog .ui-resizable-sw,.ui-dialog .ui-resizable-sw {
+	cursor: sw-resize;
+	width: 9px;
+	height: 9px;
+	left: 0px;
+	bottom: 0px;
+	background: transparent url(../_imgs/dialog/dialog-sw.gif);
+}
+
+.ui-dialog .ui-resizable-nw,.ui-dialog .ui-resizable-nw {
+	cursor: nw-resize;
+	width: 9px;
+	height: 29px;
+	left: 0px;
+	top: 0px;
+	background: transparent url(../_imgs/dialog/dialog-nw.gif);
+}
+
+.ui-dialog .ui-resizable-ne,.ui-dialog .ui-resizable-ne {
+	cursor: ne-resize;
+	width: 9px;
+	height: 29px;
+	right: 0px;
+	top: 0px;
+	background: transparent url(../_imgs/dialog/dialog-ne.gif);
+}
+
+
+
+
+/********** tabs **********/
+
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+    .ui-tabs-hide {
+        display: none !important;
+    }
+}
+
+/* Hide useless elements in print layouts... */
+@media print {
+    .ui-tabs-nav {
+        display: none;
+    }
+}
+
+/* Skin */
+.ui-tabs-nav, .ui-tabs-panel {
+    font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+.ui-tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 3px;
+}
+.ui-tabs-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.ui-tabs-nav li {
+    float: left;
+    margin: 0 0 0 2px;
+    font-weight: bold;
+}
+.ui-tabs-nav a, .ui-tabs-nav a span {
+    float: left; /* fixes dir=ltr problem and other quirks IE */
+    padding: 0 12px;
+    background: url(../_imgs/tabs/tabs.png) no-repeat;
+}
+.ui-tabs-nav a {
+    margin: 5px 0 0; /* position: relative makes opacity fail for disabled tab in IE */
+    padding-left: 0;
+    background-position: 100% 0;
+    text-decoration: none;
+    white-space: nowrap; /* @ IE 6 */
+    outline: 0; /* @ Firefox, prevent dotted border after click */    
+}
+.ui-tabs-nav a:link, .ui-tabs-nav a:visited {
+    color: #fff;
+}
+.ui-tabs-nav .ui-tabs-selected a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    margin-top: 0;
+    background-position: 100% -23px;
+}
+.ui-tabs-nav a span {
+    padding-top: 1px;
+    padding-right: 0;
+    height: 20px;
+    background-position: 0 0;
+    line-height: 20px;
+}
+.ui-tabs-nav .ui-tabs-selected a span {
+    padding-top: 0;
+    height: 27px;
+    background-position: 0 -23px;
+    line-height: 27px;
+}
+.ui-tabs-nav .ui-tabs-selected a:link, .ui-tabs-nav .ui-tabs-selected a:visited,
+.ui-tabs-nav .ui-tabs-disabled a:link, .ui-tabs-nav .ui-tabs-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active,
+.ui-tabs-nav .ui-tabs-unselect a:hover, .ui-tabs-nav .ui-tabs-unselect a:focus, .ui-tabs-nav .ui-tabs-unselect a:active { /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}
+.ui-tabs-disabled {
+    opacity: .4;
+    filter: alpha(opacity=40);
+}
+.ui-tabs-nav .ui-tabs-disabled a:link, .ui-tabs-nav .ui-tabs-disabled a:visited {
+    color: #000;
+}
+.ui-tabs-panel {
+    border: 1px solid #519e2d;
+    padding: 10px;
+    background: #ECE9D8; /* declare background color for container to avoid distorted fonts in IE while fading */
+}
+/*.ui-tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(loading.gif) no-repeat 0 50%;
+}*/
+
+/* Additional IE specific bug fixes... */
+* html .ui-tabs-nav { /* auto clear @ IE 6 & IE 7 Quirks Mode */
+    display: inline-block;
+}
+*:first-child+html .ui-tabs-nav  { /* auto clear @ IE 7 Standards Mode - do not group selectors, otherwise IE 6 will ignore complete rule (because of the unknown + combinator)... */
+    display: inline-block;
+}
+
+
+/********** commons **********/
+
+body,div,ul,li,dl,dt,h1,h2,h3,h4,h5,h6,form,textarea,p,td,img {
+	margin:0;
+	padding:0;
+	font-size:12px;
+	font-family: verdana,Arial,Helvetica,sans-serif;
+	list-style-type: none;
+	font-size: inherit;
+	color: inherit;
+	z-index: inherit;
+}
+
+body {
+	background-color: white;
+}
+
+table { 
+ border-collapse:collapse; 
+ border-spacing:0; 
+} 
+
+a {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+iframe {
+	border: 0;
+}
+
+
+/********** wxButtonsBar **********/
+.wxButtonsBar,
+.wxButtonsBar a.button:hover {
+	background-image: url(../_imgs/buttons/bg-repeat-x.png);
+}
+
+.wxButtonsBar .wxButtons {
+	margin:3px;
+}
+
+.wxButtonsBar {
+	background-position: 0 0;
+	height: 31px;
+	color: white;
+}
+
+.wxButtonsBar  a.button{
+	text-decoration:none;
+	line-height:25px;
+	display:block;
+	height:25px;
+	padding:0 5px 0 5px;
+	color: white;
+}
+
+.wxButtonsBar a.button:hover{
+	background-position: 0 -50px;
+	color: black;
+}
+
+.wxButtonsBar  a.button .title {
+	padding-left:18px;
+	background-image: url(../_imgs/buttons/icons.gif);
+	background-repeat: no-repeat;
+}
+
+
+/********** wxMenuButton **********/
+.wxDropMenu {
+	display: none;
+	z-index:2000;
+	position:absolute;
+	border:1px solid #002D96;
+	background-color: white;
+	background-image: url(../_imgs/menu/menu-bg.gif);
+	background-repeat: repeat-y;
+}
+
+.wxDropMenu td {
+	padding:1px;
+	vertical-align: middle;
+}
+
+.wxDropMenu td a{
+	white-space:nowrap;
+	margin: 1px;
+	height: 20px;
+	color: black;
+
+	text-decoration:none;
+	line-height:20px;
+	display:block;
+	padding:0 5px 0 0;
+}
+
+.wxDropMenu td a:hover{
+	background-color: #FFEEC2;
+	border:1px solid #000080;
+	margin: 0;
+	text-decoration:none;
+}
+
+.wxDropMenu td a .title {
+	padding-left: 24px;
+	display:block;
+	background-repeat: no-repeat;
+}
+
+/********** spliter **********/
+.ui-resizable-handle { position: absolute; display: none; font-size: 0.1px; }
+.ui-resizable-handle { position: absolute; display: none; font-size: 0.1px; }
+body .ui-resizable-disabled .ui-resizable-handle { display: none; } /* use 'body' to make it more specific (css order) */
+body .ui-resizable-autohide .ui-resizable-handle { display: none; } /* use 'body' to make it more specific (css order) */
+.ui-resizable-n { cursor: n-resize; height: 6px; width: 100%; top: 0px; left: 0px; background: #C4DAFA  repeat scroll center top; }
+.ui-resizable-s { cursor: s-resize; height: 6px; width: 100%; bottom: 0px; left: 0px; background: #C4DAFA  repeat scroll center top; }
+.ui-resizable-e { cursor: e-resize; width: 6px; right: 0px; top: 0px; height: 100%; background: #C4DAFA repeat scroll right center;}
+.ui-resizable-w { cursor: w-resize; width: 6px; left: 0px; top: 0px; height: 100%; background: #C4DAFA repeat scroll right center; }
+.ui-resizable-se { cursor: se-resize; width: 9px; height: 9px; right: 0px; bottom: 0px; background: #C4DAFA  }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: 0px; bottom: 0px; background: #C4DAFA  }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: 0px; top: 0px; background: #C4DAFA  }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: 0px; top: 0px; background: #C4DAFA }
+
+
+/********** Accordion **********/
+li.accordion-li {
+	display: block;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+li.accordion-li span.ui-accordion-left {
+	display:block;
+}
+li.accordion-li span.ui-accordion-right {
+	
+}
+
+li.accordion-li a.handler {
+	background-image: url(../_imgs/accordion/bg.png);
+	display:block;
+	line-height:24px;
+	text-decoration:none;
+	color: black;
+	position: relative;
+	padding-left:10px;
+	border-bottom:1px solid #012D96;
+}
+
+li.accordion-li a.accordion-selected {
+	background-color: orange;
+}
+
+li.accordion-li a.handler:hover {
+	background-color: lightgreen;
+}

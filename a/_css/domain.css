@@ -1,0 +1,55 @@
+.title_BarImg[class]{
+	background: url("../_img/domain.png");
+}
+#title_Font1{
+	color:#ffffff;
+	font-weight: bolder;
+}
+#title_Font2{
+	color:#ffffff;
+}
+#help_BTN {
+	background: url("../_img/help_BTN.gif");
+	border: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width:18px;
+}
+
+.commentBlock{
+	background-color:#236fbd;
+}
+
+.SDC_BarPanel .SDC_BarPanel_Bar {
+	background:url();
+	background-color:#236fbd;
+}
+
+.pgHeadBlock {
+	height: 41px;
+	background-color:#236fbd;
+	margin-left:10px;
+	margin-right:9px;
+}
+
+.SDC_DataTable {
+	border-top: 4px solid #236fbd;
+	border-left: 1px solid #f3f3ec;
+	border-right: 2px solid #236fbd;
+	border-bottom: 2px solid #236fbd;
+}
+/*
+.SDC_PopupWin .SDC_PopupWin_Body,
+.SDC_PopupWin .SDC_PopupWin_Leg,
+.SDC_PopupWin .SDC_PopupWin_Bottom {
+	background-color: #f3f3ec;
+}
+
+.SDC_PopupWin_Title {
+	color: #000000;
+}
+
+.SDC_PopupWin_Head{
+	background: url("../_img/button1.gif");
+}
+*/

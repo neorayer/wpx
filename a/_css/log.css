@@ -1,0 +1,52 @@
+.title_BarImg[class]{
+	background: url("../_img/log.png") no-repeat;
+}
+#title_Font1{
+	color:#ffffff;
+	font-weight: bolder;
+}
+#title_Font2{
+	color:#ffffff;
+}
+#help_BTN {
+	background: url("../_img/help_BTN.gif");
+	border: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width:18px;
+}
+
+.pgHeadBlock {
+	height: 41px;
+	background-color:#5889d6;
+	margin-left:10px;
+	margin-right:9px;
+}
+
+
+.SDC_TreeView .SDC_TreeNode_BranchCtr .SDC_TreeNode .SDC_TreeNode_Item {
+	background-color:#ffffff;
+	border-top:0px solid #ffffff;
+}
+
+.SDC_TreeView .SDC_TreeNode_BranchCtr .SDC_TreeNode .SDC_TreeNode_Item a {
+	background-color:#999999;
+}
+
+.SDC_TreeNode_Item {
+	background:url();
+	background-color:#5889d6;
+	border-top:5px solid #5889d6;
+}
+
+
+.SDC_DataTable {
+	border-top: 4px solid #5889d6;
+	border-left: 1px solid #f3f3ec;
+	border-right: 2px solid #5889d6;
+	border-bottom: 2px solid #5889d6;
+}
+
+.SDC_TreeNode_Title_hover,.SDC_TreeNode_Title_down {
+	background-color:#5889d6;
+}

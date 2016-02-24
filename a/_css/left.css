@@ -1,0 +1,55 @@
+.SDC_Button {
+	background:url(../_img/button.gif);
+	border-left:1px solid #b6b7b7;
+	border-top:1px solid #b6b7b7;
+	border-right:1px solid #b6b7b7;
+	border-bottom:1px solid #b6b7b7;
+	margin-top:5px;
+	margin-bottom:5px;
+	width:180px;
+}
+.SDC_Button_down {
+	background:url(../_img/button2.gif);
+	border-left:1px solid #255f81;
+	border-top:1px solid #255f81;
+	border-right:1px solid #255f81;
+	border-bottom:1px solid #255f81;
+	margin-top:5px;
+	margin-bottom:5px;
+	width:180px;
+}
+.SDC_Button_hover {
+	background:url(../_img/button1.gif);
+	border-left:1px solid #0b1c50;
+	border-top:1px solid #0b1c50;
+	border-right:1px solid #0b1c50;
+	border-bottom:1px solid #0b1c50;
+	margin-top:5px;
+	margin-bottom:5px;
+	width:180px;
+}
+
+
+.SDC_TreeView .SDC_TreeNode_Item{
+	height:20px;
+	margin-top:5px;
+}
+
+.SDC_TreeNode_Title,.SDC_TreeNode_Title_hover,.SDC_TreeNode_Title_down {
+	height:20px;
+}
+
+.SDC_BarPanel .SDC_BarPanel_Bar{
+
+}
+
+.SDC_BarPanel .SDC_BarPanel_Body{
+	margin-right:5px;
+}
+
+.SDC_TreeNode_Icon_Opened,.SDC_TreeNode_Icon_Closed,
+.SDC_TreeNode_Switch_Opened,.SDC_TreeNode_Switch_Closed {
+	float:left;
+	display:block;
+	height:15px;
+}

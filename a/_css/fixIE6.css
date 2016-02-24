@@ -1,0 +1,4 @@
+html{
+	filter:expression(document.execCommand("BackgroundImageCache", false, true));
+}
+

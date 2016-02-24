@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.wxDock_0 Strict//EN" "http://www.wxDock_w3.wxDock_org/TR/xhtml1/DTD/xhtml1-strict.wxDock_dtd">
+<html xmlns="http://www.wxDock_w3.wxDock_org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Scrollable 100% high element</title>
+<script type="text/javascript" src="../../jquery/jquery-1.2.6.js"></script>
+
+<style type="text/css">
+* {margin:0;padding:0}
+p{margin:0 0 1em 0}
+html,body{margin:0;padding:0;overflow:hidden}
+body{height:100%;margin:0; background-color:#c3d9ff}
+
+.wxDock_full {
+	margin: 3px;
+
+	position: absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	width: auto;
+	height: auto;
+
+
+}
+
+.wxDock_top {
+	height: 50px; /* **** */
+
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: auto;
+	left: 0;
+	width: auto;
+}
+
+.wxDock_bottom {
+	height: 30px; /* **** */
+
+	position: absolute;
+	top: auto;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: auto;
+}
+
+.wxDock_middle {
+
+	position: absolute;
+	right: 0;
+	left: 0;
+	width: auto;
+	height: auto;
+}
+
+.wxDock_left {
+	width: 100px;
+
+	position: absolute;
+	top: 0;
+	right: auto;
+	bottom: 0;
+	left: 0;
+	height: auto;
+}
+
+.wxDock_right {
+	width: 100px;
+
+	position: absolute;
+	top: 0; 
+	bottom: 0;
+	right: 0;
+	left: auto;
+	height: auto;
+
+}
+
+.wxDock_center {
+
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: auto;
+	height: auto;
+}
+
+.wxDock_content {
+	padding: 5px;
+	border:1px solid black;
+	background-color: white;
+	position: absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	width: auto;
+	height: auto;
+}
+
+</style>
+
+</head>
+<body>
+<div class="wxDock_full">
+	<div class="wxDock_top">
+		<div class="wxDock_content">Top</div>
+	</div>
+	<div class="wxDock_top">
+		<div class="wxDock_content">Top</div>
+	</div>
+	<div class="wxDock_middle">
+		<div class="wxDock_left">
+			<div class="wxDock_content">Left</div>
+		</div>
+		<div class="wxDock_left">
+			<div class="wxDock_content">Left</div>
+		</div>
+		<div class="wxDock_center">
+			<div class="wxDock_top">
+				<div class="wxDock_content">Top</div>
+			</div>
+			<div class="wxDock_middle">
+				<div class="wxDock_left">
+					<div class="wxDock_content">Left</div>
+				</div>
+				<div class="wxDock_center">
+					<div class="wxDock_content">Content</div>
+				</div>
+				<div class="wxDock_right">
+					<div class="wxDock_content">right</div>
+				</div>
+			</div>
+			<div class="wxDock_bottom">
+				<div class="wxDock_content">Bottom</div>
+			</div>
+
+		</div>
+		<div class="wxDock_right">
+			<div class="wxDock_content">right</div>
+		</div>
+		<div class="wxDock_right">
+			<div class="wxDock_content">right</div>
+		</div>
+	</div>
+	<div class="wxDock_bottom">
+		<div class="wxDock_content">Bottom</div>
+	</div>
+	<div class="wxDock_bottom">
+		<div class="wxDock_content">Bottom</div>
+	</div>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+;(function($){
+
+$.fn.split = function(options) {
+	var options = options || {};
+	var spare = options.spare || 3;
+
+	this.each(function() {
+		$this = $(this);
+		var $prev = $this.prev();
+		var $next = $this.next();
+		var $full = $this.parent();
+
+		var _wxDock_left = function() {
+			var l = $prev.size() ? $prev.position().left +  $prev.width() + spare : 0;
+			$this.css("left", l + "px")
+		}
+		var _wxDock_right = function() {
+			var r = $next.size() ? ($full.width() -  $next.position().left) + spare : 0;
+			$this.css("right", r + "px")
+		}
+		var _wxDock_center = function() {
+			_wxDock_left();
+			_wxDock_right();
+		}
+		var _wxDock_top = function() {
+			var t = $prev.size() ? $prev.position().top +  $prev.height() + spare : 0;
+			$this.css("top", t + "px");
+		}
+		var _wxDock_bottom = function() {
+			var b = $next.size() ? $full.height() - $next.position().top + spare : 0;
+			$this.css("bottom", b + "px");
+		}
+		var _wxDock_middle = function() {
+			_wxDock_top();
+			_wxDock_bottom();
+		}
+		var _wxDock_full = function() {
+			_wxDock_center();
+			_wxDock_middle();
+		}
+
+		if ($(this).hasClass("wxDock_middle"))
+			_wxDock_middle(this);
+		if ($(this).hasClass("wxDock_center"))
+			_wxDock_center(this);
+		if ($(this).hasClass("wxDock_top"))
+			_wxDock_top(this);
+		if ($(this).hasClass("wxDock_bottom"))
+			_wxDock_bottom(this);
+		if ($(this).hasClass("wxDock_left"))
+			_wxDock_left(this);
+		if ($(this).hasClass("wxDock_right"))
+			_wxDock_right(this);
+	});
+}
+
+$(document).ready(function() {
+	$(".wxDock_top").split();
+	$(".wxDock_bottom").split();
+	$(".wxDock_middle").split();
+	$(".wxDock_left").split();
+	$(".wxDock_right").split();
+	$(".wxDock_center").split();
+
+});
+
+})(jQuery);
+</script>
+
+</html>

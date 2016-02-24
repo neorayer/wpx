@@ -1,0 +1,41 @@
+.title_BarImg[class]{
+	background: url("../_img/ipcontrol.png") no-repeat;
+}
+#title_Font1{
+	color:#ffffff;
+	font-weight: bolder;
+}
+#title_Font2{
+	color:#ffffff;
+}
+#help_BTN {
+	background: url("../_img/help_BTN.gif");
+	border: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width:18px;
+}
+
+.pgHeadBlock {
+	height: 41px;
+	background-color:#e5c12f;
+	margin-left:10px;
+	margin-right:9px;
+}
+
+.SDC_BarPanel .SDC_BarPanel_Bar {
+	background:url();
+	background-color:#e5c12f;
+}
+
+
+.SDC_DataTable {
+	border-top: 4px solid #e5c12f;
+	border-left: 1px solid #f3f3ec;
+	border-right: 2px solid #e5c12f;
+	border-bottom: 2px solid #e5c12f;
+}
+
+/*.SDC_BarPanel .SDC_BarPanel_Body .SDC_ButtonsBar .SDC_ButtonsBar_Cell .SDC_Button{
+	margin-right:20px;
+}*/

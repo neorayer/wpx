@@ -1,0 +1,342 @@
+body{
+	background:#ffffff;
+	margin:0;
+	padding:0;
+	border:0 solid #fff;
+}
+
+#pgHead {
+	height:53px;
+	background:url(../_img/head_BG.png);
+}
+
+#help_BTN {
+	background: url("../_img/help_BTN.gif");
+	border: 0px;
+	margin-right: 10px;
+	margin-left: 10px;
+	width:18px;
+	height:16px;
+}
+
+.title_HeadImg[class]{
+	background: url("../_img/logo.png") no-repeat;
+}
+
+.pgHeadBlock {
+	height: 41px;
+	background-color:#236fbd;
+	margin-left:10px;
+	margin-right:9px;
+}
+
+.blankBlock {
+	height: 50px;
+	background-color:#ffffff;
+}
+
+.tableBlock {
+	margin-left:10px;
+	margin-right:9px;
+}
+
+#toolsBlock {
+	background-color:#ffffff;
+	margin-left:10px;
+	margin-top:10px;
+	margin-bottom:10px;
+	margin-right:9px;
+}
+.SDC_Button {
+	background:url(../_img/button.gif);
+	border-left:1px solid #b6b7b7;
+	border-top:1px solid #b6b7b7;
+	border-right:1px solid #b6b7b7;
+	border-bottom:1px solid #b6b7b7;
+	margin-top:5px;
+	margin-bottom:5px;
+	width:100%;
+}
+.SDC_Button_down {
+	background:url(../_img/button2.gif);
+	border-left:1px solid #255f81;
+	border-top:1px solid #255f81;
+	border-right:1px solid #255f81;
+	border-bottom:1px solid #255f81;
+	margin-top:5px;
+	margin-bottom:5px;
+	width:100%;
+}
+.SDC_Button_hover {
+	background:url(../_img/button2.gif);
+	border-left:1px solid #0b1c50;
+	border-top:1px solid #0b1c50;
+	border-right:1px solid #0b1c50;
+	border-bottom:1px solid #0b1c50;
+	margin-top:5px;
+	margin-bottom:5px;
+	width:100%;
+}
+
+.SDC_Button_Title{
+	display:block;
+	text-align:center;
+	border:0 solid #919191;
+}
+.commentBlock {
+	padding:3px;
+	border:1px solid #cccccc;
+	background-color:#ffff00;
+}
+
+.SDC_SimpleSplitter_Aide {
+	border-right:1px solid #000000;
+	background-color:#ffffff;
+}
+
+.SDC_TabBarWrap {
+	background:url(../_img/tab_BG.png);
+}
+
+#tab_domain_Body {
+	border-top: 8px solid #236fbd;
+}
+
+#tab_user_Body {
+	border-top: 8px solid #43a625;
+}
+
+#tab_admin_Body {
+	border-top: 8px solid #56458c;
+}
+
+#tab_ipcontrol_Body {
+	border-top: 8px solid #e5c12f;
+}
+
+#tab_email_Body {
+	border-top: 8px solid #e49222;
+}
+
+#tab_log_Body {
+	border-top: 8px solid #5889d6;
+}
+
+#tab_filter_Body {
+	border-top: 8px solid #43a625;
+}
+
+#tab_news_Body {
+	border-top: 8px solid #e5c12f;
+	height:0px;
+}
+
+.SDC_ButtonsBar_Cell,
+.SDC_Tab,.SDC_Tab_down,.SDC_Tab_hover {
+	height: 24px;
+	border:0px;
+}
+
+.SDC_Tab, 
+.SDC_Tab .SDC_Tab_M {
+	background:url(../_img/tab_F11.gif);
+}
+
+.SDC_Tab .SDC_Tab_M {
+	background-position:right top;
+	margin-left:12px;
+}
+.SDC_Tab span{
+	padding-right:12px;
+	text-underline-position:bellow;
+}
+
+
+.SDC_Tab_hover, 
+.SDC_Tab_hover .SDC_Tab_M {
+	background:url(../_img/tab_F11.gif);
+}
+
+.SDC_Tab_hover .SDC_Tab_M {
+	background-position:right top;
+	margin-left:12px;
+}
+.SDC_Tab_hover span{
+	padding-right:12px;
+}
+
+#tab_domain.SDC_Tab_down, 
+#tab_domain.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/b1_F.gif);
+}
+#tab_domain.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_domain.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+#tab_user.SDC_Tab_down, 
+#tab_user.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/g1_F.png);
+}
+#tab_user.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_user.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+#tab_admin.SDC_Tab_down, 
+#tab_admin.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/z1_F.png);
+}
+#tab_admin.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_admin.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+#tab_conf.SDC_Tab_down, 
+#tab_conf.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/b1_F.gif);
+}
+#tab_conf.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_conf.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+#tab_ipcontrol.SDC_Tab_down, 
+#tab_ipcontrol.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/y1_F.png);
+}
+#tab_ipcontrol.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_ipcontrol.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+#tab_email.SDC_Tab_down, 
+#tab_email.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/o1_F.png);
+}
+#tab_email.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_email.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+#tab_log.SDC_Tab_down, 
+#tab_log.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/b2_F.png);
+}
+#tab_log.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_log.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+
+#tab_filter.SDC_Tab_down, 
+#tab_filter.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/g1_F.png);
+}
+#tab_filter.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_filter.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+#tab_news.SDC_Tab_down, 
+#tab_news.SDC_Tab_down .SDC_Tab_M{
+	background:url(../_img/y1_F.png);
+}
+#tab_news.SDC_Tab_down .SDC_Tab_M{
+	background-position:right top;
+	margin-left:12px;
+}
+#tab_news.SDC_Tab_down span{
+	padding-right:12px;
+}
+
+.SDC_DataTable .DataRow_hover,.SDC_DataTable .DataRow_down {
+	background-color:#236fbd;
+}
+
+
+/*DataTable*/
+.SDC_DataTable {
+	border-top: 4px solid #236fbd;
+	border-left: 1px solid #f3f3ec;
+	border-right: 2px solid #236fbd;
+	border-bottom: 2px solid #236fbd;
+	background: #ffffff;
+	margin-bottom:10px;
+	margin-right:9px;
+}
+
+.SDC_DataTable .HeadRow .DataCell,.SDC_DataTable .HeadRow .CheckboxCell {
+	background-color:#eeecd1;
+	height:25px;
+	border-bottom:1px solid #ffffff;
+}
+
+.SDC_DataTable .HeadRow .DataCell .DtHeadTitle {
+	color:#000000;
+	font-weight:600;
+}
+
+.SDC_DataTable .DataRow .CheckboxCell,
+.SDC_DataTable .DataRow .DataCell,
+.SDC_DataTable .DataRow_down .DataCell,
+.SDC_DataTable .DataRow_hover .DataCell {
+	background-color: #f3f3ec;
+	border-bottom:1px solid #e3deb8;
+	height:23px;
+}
+
+.SDC_DataTable .DataRow_hover,
+.SDC_DataTable .DataRow_down,
+.SDC_DataTable .DataRow_down .CheckboxCell,
+.SDC_DataTable .DataRow_hover .CheckboxCell,
+.SDC_DataTable .DataRow_down .DataCell,
+.SDC_DataTable .DataRow_hover .DataCell {
+	background-color: #dddbc1;
+	color: #000000;
+}
+
+/*popWin*/
+/*
+.SDC_PopupWin .SDC_PopupWin_Body,
+.SDC_PopupWin .SDC_PopupWin_Leg,
+.SDC_PopupWin .SDC_PopupWin_Bottom {
+	background-color: #f3f3ec;
+}
+
+.SDC_PopupWin_Title {
+	color: #000000;
+}
+
+.SDC_PopupWin_Head{
+	background: url("../_img/button1.gif");
+}
+
+.SDC_PopupWin_CloseButton {
+	background: url(../_img/exitPop.gif);
+}
+*/
