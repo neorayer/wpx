@@ -8,7 +8,8 @@ As the former owner, architect and lead developer, I put part of the source code
 
 
 reference others two dependencies:
-neorayer/SkyJLib
-neorayer/jsDNA
+
+>- neorayer/SkyJLib
+>- neorayer/jsDNA
 
 
