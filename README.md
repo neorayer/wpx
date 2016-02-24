@@ -1,6 +1,8 @@
 # wpx
 WorldPost(R) Messaging Server version 10
 
+(app source code only, unit testing code removed, delopyment tools removed)
+
 WPX-WorldPost Messaging Server was the popular commercial email server system in China before 2009. 
 Of cause, its' glory has gone. Instead of building compex email system by themselves, enterprises and organizations have been outsourcing email service to ISPs or SaaS provider. 
 
